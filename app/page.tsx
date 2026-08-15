@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-10">
       <h1 className="text-2xl font-semibold mb-1">Ignite</h1>
-      <p className="text-gray-500 mb-8">Six games, one platform. Pick one to start.</p>
+      <p className="text-gray-500 mb-8">Six classic games, reimagined in one place.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {GAMES.map((g) => (
           <GameCard key={g.href} {...g} />
