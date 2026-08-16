@@ -51,31 +51,43 @@ Demonstrate your workflow mechanics by embedding your screenshots below.
 
 ### A. Milestones and Issues
 *Provide a screenshot showing your active milestone(s) and the granular tracking issues linked directly to them.*
+<img width="940" height="456" alt="image" src="https://github.com/user-attachments/assets/8c93a37f-35b7-4448-9c23-91fb742b477c" />
+<img width="940" height="451" alt="image" src="https://github.com/user-attachments/assets/0e822637-61df-457f-9569-6613ff1d5840" />
 
 
 
-* **Caption:** [Write a brief sentence describing your milestones here]
+
+* **Caption:** All four milestones tracked, with Core Platform, Authentication, and Game Modules fully complete and Polish/Deployment/Submission in progress.
 
 ### B. Project Board
 *Provide a screenshot of your GitHub Project Board with your issues organized dynamically across columns (To Do, In Progress, Done).*
+<img width="838" height="780" alt="image" src="https://github.com/user-attachments/assets/70f41a2f-b2b7-4a75-9ad4-3e22f800a87c" />
 
-[PASTE YOUR PROJECT BOARD SCREENSHOT DIRECTLY HERE]
 
-* **Caption:** [Write a brief sentence describing your board state here]
+
+* **Caption:** Issues distributed across To Do, In Progress, and Done, reflecting actual day-by-day progress rather than a static end-state list.
 
 ### C. Branching Architecture
 *Provide a screenshot showing your local or remote Git branch list, highlighting your use of conventional, issue-linked naming patterns (e.g., `feat/`, `fix/`, `style/`).*
 
-[PASTE YOUR BRANCHING SCREENSHOT DIRECTLY HERE]
+<img width="940" height="215" alt="image" src="https://github.com/user-attachments/assets/b6c05c3c-bd83-4651-8ca2-27ca061bb2a4" />
+<img width="859" height="902" alt="image" src="https://github.com/user-attachments/assets/b8e74bbd-770b-4aec-82e0-aae8ebdcae64" />
 
-* **Caption:** [Write a brief sentence describing your branch list here]
+
+* **Caption:** Feature branches following the feat/[issue-number]-[description] convention, including conflict-demonstration branches used for the required merge conflict exercises.
 
 ### D. Pull Requests & Traceability
 *Provide a screenshot of a completed or open Pull Request (PR) on GitHub that clearly shows it is linked to a related development issue.*
 
 [PASTE YOUR PULL REQUEST SCREENSHOT DIRECTLY HERE]
 
-* **Caption:** [Write a brief sentence describing your PR and what issue it closes]
+
+<img width="940" height="193" alt="image" src="https://github.com/user-attachments/assets/e3a16305-e959-4f8a-bde5-6363616568ba" />
+
+<img width="940" height="386" alt="image" src="https://github.com/user-attachments/assets/9bdbe10e-5163-4d89-bccc-c00db49c0126" />
+
+
+* **Caption:**  A merged pull request explicitly linked to its closed issues via the Closes # footer, with a clear Summary/Testing description structure.
 
 ---
 
@@ -89,52 +101,64 @@ You must engineer **three merge conflicts**, each triggered by a **different cau
 
 ### Conflict 1 — Full Chronology
 
-**What cause did you use?** [Name the type of conflict cause from the lecture]
+**What cause did you use?** Same-line edit conflict — two branches modifying the same line of the same file with different content.
 
 #### Step 1: Generating the Clash
 *Screenshot showing the merge attempt and the conflict warning.*
 
 [PASTE SCREENSHOT OF ATTEMPTED MERGE / TERMINAL WARNING HERE]
 
-* **Caption:** [Describe which two branches collided and the warning received]
+<img width="1455" height="160" alt="conflict_evidence_1" src="https://github.com/user-attachments/assets/1e04ded6-dc93-451e-b6cf-41b4c5ff31d0" />
+
+
+* **Caption:** Attempted merge of conflict/branch-a and conflict/branch-b, both modifying the tagline text on app/page.tsx, triggering a content conflict.
 
 #### Step 2: Inside the Code Editor (Conflict Markers)
 *Screenshot showing the raw, unresolved conflict markers (`<<<<<<< HEAD`, `=======`, `>>>>>>>`) in your editor.*
 
 [PASTE SCREENSHOT OF RAW CONFLICT MARKERS HERE]
 
-* **Caption:** [Explain what caused the dispute and your reasoning for the final version]
+<img width="1455" height="160" alt="conflict_evidence_1" src="https://github.com/user-attachments/assets/8e973bc3-085e-4b43-b558-6437e8644f78" />
+
+
+* **Caption:** Raw <<<<<<< HEAD / ======= / >>>>>>> markers shown in VS Code around the conflicting tagline line.
 
 #### Step 3: Resolution & Clean Merge
 *Screenshot of your clean Git history or completed PR showing the conflict was resolved and merged.*
 
 [PASTE SCREENSHOT OF CLEAN RESOLUTION HERE]
 
-* **Caption:** [Describe the final state after resolution]
+**Caption:** Conflict resolved by combining elements of both proposed taglines into a single new line, committed and merged into main.
 
 ---
 
 ### Conflict 2 — Different Cause
 
-**What cause did you use?** [Name the type of conflict cause — must be different from Conflict 1]
+**What cause did you use?** Modify/delete conflict.
 
-**Why does this cause trigger a conflict?** [1–2 sentences explaining the mechanism]
+**Why does this cause trigger a conflict?** One branch modified components/GameCard.tsx while another branch deleted the same file entirely — Git cannot automatically reconcile an update against a deletion, since it doesn't know whether the file should exist afterward.
 
 [PASTE SCREENSHOT OF CONFLICT MARKERS FOR CONFLICT 2 HERE]
 
-* **Caption:** [Brief description of the conflicting branches and file]
+<img width="1443" height="398" alt="conflict_evidence_2" src="https://github.com/user-attachments/assets/c788b3a9-af5a-4192-9e3c-2af87ce00a5a" />
+
+
+* **Caption:** conflict/branch-c added a hover effect to GameCard.tsx while conflict/branch-d deleted the same file; merging both produced a modify/delete conflict, resolved by retaining the file since the home page depends on it.
 
 ---
 
 ### Conflict 3 — Different Cause
 
-**What cause did you use?** [Name the type of conflict cause — must be different from Conflicts 1 and 2]
+**What cause did you use?** Dependency/lockfile conflict.
 
-**Why does this cause trigger a conflict?** [1–2 sentences explaining the mechanism]
+**Why does this cause trigger a conflict?** Two branches independently ran npm install for different packages (date-fns and clsx), each modifying package.json and package-lock.json in incompatible ways — the generated lockfile diverged between branches, producing conflicts in both files on merge.
 
 [PASTE SCREENSHOT OF CONFLICT MARKERS FOR CONFLICT 3 HERE]
 
-* **Caption:** [Brief description of the conflicting branches and file]
+<img width="1385" height="198" alt="conflict_evidence_3" src="https://github.com/user-attachments/assets/7d7a88a3-133b-4d7f-8cc5-6412ce7e7b20" />
+
+
+* **Caption:** conflict/branch-e added date-fns and conflict/branch-f added clsx; merging both conflicted in package.json and package-lock.json, resolved by keeping both dependencies and regenerating the lockfile via npm install rather than hand-editing it.
 
 ---
 ##
